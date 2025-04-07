@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <!-- Meta tags e links como no template base -->
+    <title>Criar Passeio - Passeios da Serra</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="css/animation.css">
+     <!-- Link para o Font Awesome (versão gratuita) -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header como no template base -->
+    
+    <main id="main-content">
+        <section class="create-passeio-section">
+            <div class="container">
+                <div class="create-header animate-on-scroll" data-animation="fadeIn">
+                    <h1>Criar Novo Passeio</h1>
+                    <p>Compartilhe sua experiência única com outros viajantes</p>
+                </div>
+                
+                <form class="create-form">
+                    <div class="form-steps">
+                        <div class="step-indicator active" data-step="1">
+                            <span>1</span>
+                            <span>Informações Básicas</span>
+                        </div>
+                        <div class="step-indicator" data-step="2">
+                            <span>2</span>
+                            <span>Detalhes</span>
+                        </div>
+                        <div class="step-indicator" data-step="3">
+                            <span>3</span>
+                            <span>Imagens</span>
+                        </div>
+                        <div class="step-indicator" data-step="4">
+                            <span>4</span>
+                            <span>Preço & Disponibilidade</span>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step active" data-step="1">
+                        <h2>Informações Básicas</h2>
+                        
+                        <div class="form-group">
+                            <label for="passeio-title">Título do Passeio*</label>
+                            <input type="text" id="passeio-title" placeholder="Ex: Trilha da Pedra do Baú" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passeio-category">Categoria*</label>
+                            <select id="passeio-category" required>
+                                <option value="">Selecione uma categoria</option>
+                                <option value="aventura">Aventura</option>
+                                <option value="cultural">Cultural</option>
+                                <option value="gastronomia">Gastronomia</option>
+                                <option value="natureza">Natureza</option>
+                                <option value="familia">Família</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passeio-location">Localização*</label>
+                            <input type="text" id="passeio-location" placeholder="Ex: São Bento do Sapucaí, SP" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passeio-short-desc">Descrição Curta*</label>
+                            <textarea id="passeio-short-desc" rows="3" placeholder="Uma breve descrição que aparecerá nos resultados de busca (máx. 200 caracteres)" required maxlength="200"></textarea>
+                            <div class="char-count"><span id="short-desc-count">0</span>/200</div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" data-next-step>Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" data-step="2">
+                        <h2>Detalhes do Passeio</h2>
+                        
+                        <div class="form-group">
+                            <label for="passeio-long-desc">Descrição Detalhada*</label>
+                            <textarea id="passeio-long-desc" rows="6" placeholder="Descreva seu passeio em detalhes. O que os participantes podem esperar? Quais são os destaques?" required></textarea>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="passeio-duration">Duração (horas)*</label>
+                                <input type="number" id="passeio-duration" min="1" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="passeio-difficulty">Nível de Dificuldade*</label>
+                                <select id="passeio-difficulty" required>
+                                    <option value="">Selecione</option>
+                                    <option value="facil">Fácil</option>
+                                    <option value="moderado">Moderado</option>
+                                    <option value="dificil">Difícil</option>
+                                </select>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Itens Inclusos</label>
+                            <div class="included-items">
+                                <label class="item-option">
+                                    <input type="checkbox" name="included-items" value="refeicoes">
+                                    <span>Refeições</span>
+                                </label>
+                                <label class="item-option">
+                                    <input type="checkbox" name="included-items" value="bebidas">
+                                    <span>Bebidas</span>
+                                </label>
+                                <label class="item-option">
+                                    <input type="checkbox" name="included-items" value="transport">
+                                    <span>Transporte</span>
+                                </label>
+                                <label class="item-option">
+                                    <input type="checkbox" name="included-items" value="equipamentos">
+                                    <span>Equipamentos</span>
+                                </label>
+                                <label class="item-option">
+                                    <input type="checkbox" name="included-items" value="ingressos">
+                                    <span>Ingressos</span>
+                                </label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passeio-requirements">Requisitos/Preparação</label>
+                            <textarea id="passeio-requirements" rows="3" placeholder="O que os participantes precisam trazer ou saber antes do passeio?"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+                            <button type="button" class="btn btn-primary" data-next-step>Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" data-step="3">
+                        <h2>Imagens do Passeio</h2>
+                        
+                        <div class="form-group">
+                            <label>Imagem Principal*</label>
+                            <p class="form-hint">Esta será a imagem de destaque do seu passeio. Escolha uma foto de alta qualidade que represente bem a experiência.</p>
+                            <div class="image-upload">
+                                <div class="upload-preview" id="main-image-preview">
+                                    <span>Nenhuma imagem selecionada</span>
+                                </div>
+                                <input type="file" id="main-image" accept="image/*" required>
+                                <label for="main-image" class="btn btn-secondary">Selecionar Imagem</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Galeria de Imagens</label>
+                            <p class="form-hint">Adicione até 5 fotos adicionais para mostrar diferentes aspectos do seu passeio.</p>
+                            <div class="gallery-upload">
+                                <div class="gallery-preview" id="gallery-preview">
+                                    <div class="empty-gallery">
+                                        <i class="fas fa-images"></i>
+                                        <span>Nenhuma imagem adicionada</span>
+                                    </div>
+                                </div>
+                                <input type="file" id="gallery-images" accept="image/*" multiple>
+                                <label for="gallery-images" class="btn btn-secondary">Adicionar Imagens</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+                            <button type="button" class="btn btn-primary" data-next-step>Próximo</button>
+                        </div>
+                    </div>
+                    
+                    <div class="form-step" data-step="4">
+                        <h2>Preço & Disponibilidade</h2>
+                        
+                        <div class="form-group">
+                            <label for="passeio-price">Preço por pessoa (R$)*</label>
+                            <input type="number" id="passeio-price" min="0" step="0.01" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passeio-max-participants">Número máximo de participantes*</label>
+                            <input type="number" id="passeio-max-participants" min="1" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label>Datas Disponíveis*</label>
+                            <p class="form-hint">Adicione as datas em que o passeio estará disponível.</p>
+                            <div class="dates-container" id="dates-container">
+                                <!-- Datas serão adicionadas dinamicamente aqui -->
+                            </div>
+                            <div class="add-date">
+                                <input type="date" id="new-date">
+                                <button type="button" class="btn btn-secondary" id="add-date-btn">Adicionar Data</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="passeio-cancelation">Política de Cancelamento*</label>
+                            <select id="passeio-cancelation" required>
+                                <option value="">Selecione uma política</option>
+                                <option value="flexivel">Flexível - Reembolso total até 24h antes</option>
+                                <option value="moderada">Moderada - Reembolso total até 48h antes</option>
+                                <option value="rigorosa">Rigorosa - Reembolso de 50% até 1 semana antes</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" data-prev-step>Voltar</button>
+                            <button type="submit" class="btn btn-primary">Publicar Passeio</button>
+                        </div>
+                    </div>
+                </form>
+                
+                <div class="preview-section animate-on-scroll" data-animation="fadeIn">
+                    <h2>Pré-visualização</h2>
+                    <p>Veja como seu passeio será exibido para os visitantes</p>
+                    
+                    <div class="preview-container">
+                        <div class="passeio-card card-zoom">
+                            <div class="card-image" id="preview-image">
+                                <span class="card-badge" id="preview-badge">Novo</span>
+                            </div>
+                            <div class="card-content">
+                                <h3 id="preview-title">Título do Passeio</h3>
+                                <div class="card-rating">
+                                    <div class="stars" data-rating="0">
+                                        <span>★★★★★</span>
+                                    </div>
+                                    <span class="rating-text">Novo</span>
+                                </div>
+                                <p class="card-description" id="preview-desc">Descrição curta do passeio aparecerá aqui.</p>
+                                <div class="card-footer">
+                                    <span class="card-price" id="preview-price">R$ 0,00</span>
+                                    <a href="#" class="btn btn-primary btn-sm">Detalhes</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer como no template base -->
+    
+    <!-- Scripts específicos da criação de passeio -->
+    <script src="js/passeios.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Contador de caracteres para descrição curta
+            const shortDesc = document.getElementById('passeio-short-desc');
+            const shortDescCount = document.getElementById('short-desc-count');
+            
+            if (shortDesc && shortDescCount) {
+                shortDesc.addEventListener('input', function() {
+                    shortDescCount.textContent = this.value.length;
+                });
+            }
+            
+            // Navegação entre passos do formulário
+            const nextStepBtns = document.querySelectorAll('[data-next-step]');
+            const prevStepBtns = document.querySelectorAll('[data-prev-step]');
+            
+            nextStepBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const currentStep = this.closest('.form-step');
+                    const nextStep = document.querySelector(`.form-step[data-step="${parseInt(currentStep.dataset.step) + 1}"]`);
+                    
+                    // Validar campos antes de avançar
+                    const inputs = currentStep.querySelectorAll('input[required], select[required], textarea[required]');
+                    let isValid = true;
+                    
+                    inputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            input.classList.add('error');
+                            isValid = false;
+                        } else {
+                            input.classList.remove('error');
+                        }
+                    });
+                    
+                    if (!isValid) {
+                        // Rolar até o primeiro erro
+                        const firstError = currentStep.querySelector('.error');
+                        if (firstError) {
+                            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        return;
+                    }
+                    
+                    // Avançar para o próximo passo
+                    currentStep.classList.remove('active');
+                    nextStep.classList.add('active');
+                    
+                    // Atualizar indicador de passos
+                    const currentIndicator = document.querySelector(`.step-indicator[data-step="${currentStep.dataset.step}"]`);
+                    const nextIndicator = document.querySelector(`.step-indicator[data-step="${nextStep.dataset.step}"]`);
+                    
+                    currentIndicator.classList.remove('active');
+                    nextIndicator.classList.add('active');
+                    
+                    // Atualizar pré-visualização
+                    updatePreview();
+                });
+            });
+            
+            prevStepBtns.forEach(btn => {
+                btn.addEventListener('click', function() {
+                    const currentStep = this.closest('.form-step');
+                    const prevStep = document.querySelector(`.form-step[data-step="${parseInt(currentStep.dataset.step) - 1}"]`);
+                    
+                    // Voltar para o passo anterior
+                    currentStep.classList.remove('active');
+                    prevStep.classList.add('active');
+                    
+                    // Atualizar indicador de passos
+                    const currentIndicator = document.querySelector(`.step-indicator[data-step="${currentStep.dataset.step}"]`);
+                    const prevIndicator = document.querySelector(`.step-indicator[data-step="${prevStep.dataset.step}"]`);
+                    
+                    currentIndicator.classList.remove('active');
+                    prevIndicator.classList.add('active');
+                });
+            });
+            
+            // Upload de imagens
+            const mainImageInput = document.getElementById('main-image');
+            const mainImagePreview = document.getElementById('main-image-preview');
+            
+            if (mainImageInput && mainImagePreview) {
+                mainImageInput.addEventListener('change', function() {
+                    if (this.files && this.files[0]) {
+                        const reader = new FileReader();
+                        
+                        reader.onload = function(e) {
+                            mainImagePreview.style.backgroundImage = `url(${e.target.result})`;
+                            mainImagePreview.innerHTML = '';
+                            
+                            // Atualizar pré-visualização
+                            document.getElementById('preview-image').style.backgroundImage = `url(${e.target.result})`;
+                        };
+                        
+                        reader.readAsDataURL(this.files[0]);
+                    }
+                });
+            }
+            
+            const galleryInput = document.getElementById('gallery-images');
+            const galleryPreview = document.getElementById('gallery-preview');
+            
+            if (galleryInput && galleryPreview) {
+                galleryInput.addEventListener('change', function() {
+                    if (this.files && this.files.length > 0) {
+                        // Remover mensagem de galeria vazia
+                        const emptyGallery = galleryPreview.querySelector('.empty-gallery');
+                        if (emptyGallery) {
+                            emptyGallery.remove();
+                        }
+                        
+                        // Limitar a 5 imagens
+                        const files = Array.from(this.files).slice(0, 5);
+                        
+                        files.forEach(file => {
+                            const reader = new FileReader();
+                            const galleryItem = document.createElement('div');
+                            galleryItem.className = 'gallery-item';
+                            
+                            reader.onload = function(e) {
+                                galleryItem.style.backgroundImage = `url(${e.target.result})`;
+                            };
+                            
+                            reader.readAsDataURL(file);
+                            galleryPreview.appendChild(galleryItem);
+                        });
+                    }
+                });
+            }
+            
+            // Gerenciamento de datas
+            const addDateBtn = document.getElementById('add-date-btn');
+            const newDateInput = document.getElementById('new-date');
+            const datesContainer = document.getElementById('dates-container');
+            
+            if (addDateBtn && newDateInput && datesContainer) {
+                addDateBtn.addEventListener('click', function() {
+                    if (!newDateInput.value) return;
+                    
+                    const dateTag = document.createElement('div');
+                    dateTag.className = 'date-tag';
+                    dateTag.innerHTML = `
+                        <span>${formatDate(newDateInput.value)}</span>
+                        <button type="button" class="remove-date"><i class="fas fa-times"></i></button>
+                    `;
+                    
+                    datesContainer.appendChild(dateTag);
+                    newDateInput.value = '';
+                    
+                    // Adicionar evento para remover data
+                    dateTag.querySelector('.remove-date').addEventListener('click', function() {
+                        dateTag.remove();
+                    });
+                });
+            }
+            
+            // Atualizar pré-visualização conforme o formulário é preenchido
+            function updatePreview() {
+                const title = document.getElementById('passeio-title').value || 'Título do Passeio';
+                const shortDesc = document.getElementById('passeio-short-desc').value || 'Descrição curta do passeio aparecerá aqui.';
+                const price = document.getElementById('passeio-price').value ? `R$ ${parseFloat(document.getElementById('passeio-price').value).toFixed(2)}` : 'R$ 0,00';
+                const category = document.getElementById('passeio-category').value;
+                
+                document.getElementById('preview-title').textContent = title;
+                document.getElementById('preview-desc').textContent = shortDesc;
+                document.getElementById('preview-price').textContent = price;
+                
+                // Atualizar badge conforme categoria
+                if (category) {
+                    const badge = document.getElementById('preview-badge');
+                    badge.textContent = getCategoryLabel(category);
+                    badge.style.display = 'inline-block';
+                } else {
+                    document.getElementById('preview-badge').style.display = 'none';
+                }
+            }
+            
+            // Observar mudanças nos campos relevantes para a pré-visualização
+            const previewFields = ['passeio-title', 'passeio-short-desc', 'passeio-price', 'passeio-category'];
+            previewFields.forEach(id => {
+                const field = document.getElementById(id);
+                if (field) {
+                    field.addEventListener('input', updatePreview);
+                }
+            });
+            
+            // Funções auxiliares
+            function formatDate(dateString) {
+                const options = { day: 'numeric', month: 'short', year: 'numeric' };
+                return new Date(dateString).toLocaleDateString('pt-BR', options);
+            }
+            
+            function getCategoryLabel(category) {
+                const categories = {
+                    'aventura': 'Aventura',
+                    'cultural': 'Cultural',
+                    'gastronomia': 'Gastronomia',
+                    'natureza': 'Natureza',
+                    'familia': 'Família'
+                };
+                return categories[category] || 'Novo';
+            }
+            
+            // Envio do formulário
+            const createForm = document.querySelector('.create-form');
+            if (createForm) {
+                createForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Validar todos os campos obrigatórios
+                    const requiredInputs = this.querySelectorAll('[required]');
+                    let isValid = true;
+                    
+                    requiredInputs.forEach(input => {
+                        if (!input.value.trim()) {
+                            input.classList.add('error');
+                            isValid = false;
+                        }
+                    });
+                    
+                    if (!isValid) {
+                        // Rolar até o primeiro erro
+                        const firstError = this.querySelector('.error');
+                        if (firstError) {
+                            firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
+                        return;
+                    }
+                    
+                    // Coletar todos os dados do formulário
+                    const formData = {
+                        title: document.getElementById('passeio-title').value,
+                        category: document.getElementById('passeio-category').value,
+                        location: document.getElementById('passeio-location').value,
+                        shortDesc: document.getElementById('passeio-short-desc').value,
+                        longDesc: document.getElementById('passeio-long-desc').value,
+                        duration: document.getElementById('passeio-duration').value,
+                        difficulty: document.getElementById('passeio-difficulty').value,
+                        includedItems: Array.from(document.querySelectorAll('input[name="included-items"]:checked')).map(el => el.value),
+                        requirements: document.getElementById('passeio-requirements').value,
+                        price: document.getElementById('passeio-price').value,
+                        maxParticipants: document.getElementById('passeio-max-participants').value,
+                        dates: Array.from(document.querySelectorAll('.date-tag span')).map(el => el.textContent),
+                        cancelationPolicy: document.getElementById('passeio-cancelation').value,
+                        mainImage: document.getElementById('main-image').files[0]?.name || null,
+                        galleryImages: document.getElementById('gallery-images').files?.length || 0
+                    };
+                    
+                    // Aqui você enviaria os dados para o servidor
+                    console.log('Dados do passeio:', formData);
+                    
+                    // Simular envio bem-sucedido
+                    alert('Passeio criado com sucesso!');
+                    window.location.href = 'perfil.html';
+                });
+            }
+        });
+    </script>
+</body>
+</html>

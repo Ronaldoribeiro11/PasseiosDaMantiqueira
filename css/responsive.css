@@ -1,0 +1,140 @@
+/* Responsividade Geral */
+@media (max-width: 1200px) {
+    .container, .header-container, .footer-container {
+        padding: 0 var(--space-lg);
+    }
+}
+
+@media (max-width: 992px) {
+    /* Ajustes para tablets */
+    .hero-text h1 {
+        font-size: 2.5rem;
+    }
+    
+    .steps-container {
+        flex-wrap: wrap;
+    }
+    
+    .step {
+        flex: 0 0 calc(50% - var(--space-md));
+    }
+    
+    /* Menu principal */
+    .nav-menu {
+        width: 80%;
+    }
+}
+
+@media (max-width: 768px) {
+    /* Ajustes para dispositivos móveis grandes */
+    :root {
+        --font-size-base: 15px;
+    }
+    
+    .hero-section {
+        min-height: 500px;
+    }
+    
+    .hero-text h1 {
+        font-size: 2rem;
+    }
+    
+    .hero-text .subtitle {
+        font-size: 1.2rem;
+    }
+    
+    .step {
+        flex: 0 0 100%;
+    }
+    
+    /* Menu principal */
+    .nav-menu {
+        width: 85%;
+    }
+    
+    /* Formulários */
+    .form-row {
+        flex-direction: column;
+    }
+    
+    /* Cards de passeio */
+    .passeio-card {
+        flex: 0 0 calc(50% - var(--space-md));
+    }
+}
+
+@media (max-width: 576px) {
+    /* Ajustes para dispositivos móveis pequenos */
+    :root {
+        --font-size-base: 14px;
+        --space-xl: 1.5rem;
+    }
+    
+    .header {
+        padding: var(--space-xs) 0;
+    }
+    
+    .logo img {
+        height: 32px;
+    }
+    
+    .hero-section {
+        min-height: 400px;
+    }
+    
+    .hero-text h1 {
+        font-size: 1.8rem;
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+    }
+    
+    /* Menu principal */
+    .nav-menu {
+        width: 90%;
+    }
+    
+    .menu-container {
+        padding: var(--space-lg);
+    }
+    
+    /* Cards de passeio */
+    .passeio-card {
+        flex: 0 0 100%;
+    }
+    
+    /* Rodapé */
+    .footer-container {
+        flex-direction: column;
+        gap: var(--space-lg);
+    }
+    
+    .footer-links, .footer-social {
+        justify-content: center;
+    }
+}
+
+/* Orientação paisagem em dispositivos móveis */
+@media (max-height: 576px) and (orientation: landscape) {
+    .hero-section {
+        height: auto;
+        min-height: 100vh;
+    }
+    
+    .hero-content {
+        padding-bottom: var(--space-md);
+    }
+}
+
+/* Ajustes específicos para iPhone 5/SE */
+@media (max-width: 320px) {
+    :root {
+        --font-size-base: 13px;
+    }
+    
+    .btn {
+        padding: var(--space-xs) var(--space-sm);
+        font-size: 1rem;
+    }
+}
