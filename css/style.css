@@ -1,4 +1,8 @@
 :root {
+    --max-width: 1200px;
+  --header-height: 72px;
+  --footer-height: 120px;
+  --section-padding: clamp(2rem, 5vw, 4rem);
     /* Cores */
     --white: #FFFFFF;
     --light-gray: #F5F5F5;
@@ -132,11 +136,13 @@ a:hover {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 0%;
     background-color: var(--white);
     box-shadow: var(--shadow-sm);
     z-index: 1000;
     padding: var(--space-sm) 0;
+
+
 }
 
 .header-container {
@@ -153,12 +159,18 @@ a:hover {
 }
 
 .menu-toggle {
-    background: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    background: transparent;
     border: none;
     cursor: pointer;
-    padding: var(--space-sm);
-    z-index: 1001;
+    padding: 0;
+    z-index: 1000;
 }
+
 
 .hamburger {
     display: block;
@@ -407,7 +419,7 @@ body, html {
 /* Se estiver usando um header invisível */
 header {
     height: 0;
-    visibility: hidden;
+    visibility: visible;
     margin: 0;
     padding: 0;
 }
@@ -3321,18 +3333,6 @@ input[type="range"]::-webkit-slider-thumb {
     visibility: visible;
 }
 
-/* Botão do menu */
-.menu-toggle {
-    background: none;
-    border: none;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
-}
-
 .menu-toggle span {
     display: block;
     width: 25px;
@@ -3373,4 +3373,129 @@ input[type="range"]::-webkit-slider-thumb {
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 10px;
+}
+/* Menu Deslizante */
+.slide-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--white);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: all 0.3s ease;
+    overflow-y: auto;
+    padding-top: 80px;
+}
+
+.slide-menu.open {
+    left: 0;
+}
+
+.slide-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.slide-menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.slide-menu-header {
+    padding: 20px;
+    text-align: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.slide-menu-header img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 2px solid var(--soft-gold);
+}
+
+.slide-menu-nav {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.slide-menu-nav li {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.slide-menu-nav a {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--dark-gray);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.slide-menu-nav a:hover {
+    background-color: rgba(46, 125, 50, 0.1);
+    color: var(--dark-green);
+}
+
+.slide-menu-nav i {
+    margin-right: 15px;
+    width: 20px;
+    text-align: center;
+    color: var(--soft-gold);
+}
+
+.slide-menu-footer {
+    padding: 15px 20px;
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+    font-size: 0.9rem;
+    color: rgba(0, 0, 0, 0.6);
+    text-align: center;
+}
+
+/* Adicione isso no seu style.css */
+.sidebar-menu {
+    position: fixed;
+    top: 0;
+    left: -300px;
+    width: 260px;
+    height: 100%;
+    background-color: #fff;
+    box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    transition: left 0.3s ease;
+    z-index: 1001;
+}
+
+.sidebar-menu.open {
+    left: 0;
+}
+
+.menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.menu-overlay.active {
+    opacity: 1;
+    visibility: visible;
 }

@@ -18,16 +18,6 @@
                 <span></span>
                 <span></span>
             </button>
-            
-            <div class="logo">
-                <img src="assets/images/logo.png" alt="Passeios da Serra">
-            </div>
-            
-            <nav class="main-nav">
-                <a href="pesquisa.html" class="btn btn-secondary">Explorar Passeios</a>
-                <a href="login.html" class="btn btn-primary">Entrar</a>
-            </nav>
-        </div>
     </header>
     
     <main id="main-content">
@@ -283,25 +273,27 @@
     </footer>
 
     <!-- Menu Lateral -->
-    <div class="sidebar-menu" id="sidebarMenu">
-        <div class="profile-section">
-            <img src="assets/images/ImagemUsuario.jpg" alt="Perfil">
-            <h4>Ana Silva</h4>
-            <p>ana.silva@email.com</p>
-        </div>
-        
-        <ul class="sidebar-nav">
-            <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
-            <li><a href="pesquisa.html"><i class="fas fa-search"></i> Explorar Passeios</a></li>
-            <li><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
-            <li><a href="criar-passeio.html"><i class="fas fa-plus-circle"></i> Criar Passeio</a></li>
-            <li><a href="avaliacoes.html"><i class="fas fa-star"></i> Avaliações</a></li>
-            <li><a href="favoritos.html"><i class="fas fa-heart"></i> Favoritos</a></li>
-            <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
-            <li><a href="ajuda.html"><i class="fas fa-question-circle"></i> Ajuda</a></li>
-            <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
-        </ul>
+    <!-- Menu Lateral -->
+<div class="sidebar-menu" id="sidebarMenu">
+    <button class="close-btn" id="closeMenuBtn">&times;</button>
+    <div class="profile-section">
+        <img src="assets/images/ImagemUsuario.jpg" alt="Perfil">
+        <h4>Ana Silva</h4>
+        <p>ana.silva@email.com</p>
     </div>
+    
+    <ul class="sidebar-nav">
+        <li><a href="index.html"><i class="fas fa-home"></i> Início</a></li>
+        <li><a href="pesquisa.html"><i class="fas fa-search"></i> Explorar Passeios</a></li>
+        <li><a href="perfil.html"><i class="fas fa-user"></i> Meu Perfil</a></li>
+        <li><a href="criar-passeio.html"><i class="fas fa-plus-circle"></i> Criar Passeio</a></li>
+        <li><a href="avaliacoes.html"><i class="fas fa-star"></i> Avaliações</a></li>
+        <li><a href="favoritos.html"><i class="fas fa-heart"></i> Favoritos</a></li>
+        <li><a href="configuracoes.html"><i class="fas fa-cog"></i> Configurações</a></li>
+        <li><a href="ajuda.html"><i class="fas fa-question-circle"></i> Ajuda</a></li>
+        <li><a href="login.html"><i class="fas fa-sign-out-alt"></i> Sair</a></li>
+    </ul>
+</div>
 
     <div class="menu-overlay" id="menuOverlay"></div>
 
@@ -310,21 +302,23 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Controle do Menu Lateral
-            const menuToggle = document.querySelector('.menu-toggle');
-            const sidebarMenu = document.getElementById('sidebarMenu');
-            const menuOverlay = document.getElementById('menuOverlay');
-            
-            if (menuToggle && sidebarMenu && menuOverlay) {
-                menuToggle.addEventListener('click', function() {
-                    sidebarMenu.classList.toggle('open');
-                    menuOverlay.classList.toggle('active');
-                });
-                
-                menuOverlay.addEventListener('click', function() {
-                    sidebarMenu.classList.remove('open');
-                    this.classList.remove('active');
-                });
-            }
+    const menuToggle = document.querySelector('.menu-toggle');
+    const sidebarMenu = document.getElementById('sidebarMenu');
+    const menuOverlay = document.getElementById('menuOverlay');
+    const closeMenuBtn = document.getElementById('closeMenuBtn');
+    
+    function toggleMenu() {
+        menuToggle.classList.toggle('active');
+        sidebarMenu.classList.toggle('open');
+        menuOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    }
+    
+    if (menuToggle && sidebarMenu && menuOverlay && closeMenuBtn) {
+        menuToggle.addEventListener('click', toggleMenu);
+        closeMenuBtn.addEventListener('click', toggleMenu);
+        menuOverlay.addEventListener('click', toggleMenu);
+    }
 
             // Carrossel de passeios
             const passeiosCarousel = new Carousel('.passeios-carousel .carousel-container', {
@@ -361,7 +355,7 @@
                     }
                 ]
             });
-            
+
             // Animação de digitação
             const typeElements = document.querySelectorAll('.type-animation');
             typeElements.forEach(el => {
@@ -378,6 +372,9 @@
                 }, 100);
             });
         });
+        document.addEventListener('DOMContentLoaded', function() {
+    
+});
     </script>
 </body>
 </html>

@@ -446,6 +446,33 @@
                 }
             });
         });
+        // No financial.html, dentro do script existente
+function adjustFinancialCharts() {
+    if (window.innerWidth < 768) {
+        if (monthlyRevenueChart) {
+            monthlyRevenueChart.options.plugins.legend.position = 'bottom';
+            monthlyRevenueChart.update();
+        }
+        
+        if (revenueDistributionChart) {
+            revenueDistributionChart.options.plugins.legend.position = 'bottom';
+            revenueDistributionChart.update();
+        }
+    } else {
+        if (monthlyRevenueChart) {
+            monthlyRevenueChart.options.plugins.legend.position = 'top';
+            monthlyRevenueChart.update();
+        }
+        
+        if (revenueDistributionChart) {
+            revenueDistributionChart.options.plugins.legend.position = 'right';
+            revenueDistributionChart.update();
+        }
+    }
+}
+
+window.addEventListener('load', adjustFinancialCharts);
+window.addEventListener('resize', adjustFinancialCharts);
     </script>
 </body>
 </html>

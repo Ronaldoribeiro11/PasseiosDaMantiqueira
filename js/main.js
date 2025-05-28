@@ -99,3 +99,22 @@ function loadContent(url, targetElementId) {
             targetElement.innerHTML = `<div class="error-message">Erro ao carregar o conteúdo: ${error.message}</div>`;
         });
 }
+
+// Controle do Menu Deslizante
+const menuToggle = document.querySelector('.menu-toggle');
+const slideMenu = document.getElementById('slideMenu');
+const slideMenuOverlay = document.getElementById('slideMenuOverlay');
+
+if (menuToggle && slideMenu && slideMenuOverlay) {
+    menuToggle.addEventListener('click', function() {
+        slideMenu.classList.toggle('open');
+        slideMenuOverlay.classList.toggle('active');
+        document.body.classList.toggle('no-scroll');
+    });
+    
+    slideMenuOverlay.addEventListener('click', function() {
+        slideMenu.classList.remove('open');
+        this.classList.remove('active');
+        document.body.classList.remove('no-scroll');
+    });
+}

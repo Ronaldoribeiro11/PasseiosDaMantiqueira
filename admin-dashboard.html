@@ -242,7 +242,8 @@
                     <div class="chart-header">
                         <h3>Distribuição de Usuários</h3>
                     </div>
-                    <div class="chart-container">
+                    <!-- jhdfja -->
+                    <div class="circulo">
                         <canvas id="usersChart"></canvas>
                     </div>
                 </div>
@@ -566,6 +567,56 @@
                 }
             });
         });
+        // Ajustar gráficos para responsividade
+function adjustChartsForMobile() {
+    if (window.innerWidth < 768) {
+        // Ajustar opções dos gráficos para telas pequenas
+        if (growthChart) {
+            growthChart.options.plugins.legend.position = 'bottom';
+            growthChart.update();
+        }
+        
+        if (usersChart) {
+            usersChart.options.plugins.legend.position = 'bottom';
+            usersChart.update();
+        }
+        
+        if (topToursChart) {
+            topToursChart.options.indexAxis = 'y';
+            topToursChart.update();
+        }
+        
+        if (revenueChart) {
+            revenueChart.options.plugins.legend.position = 'bottom';
+            revenueChart.update();
+        }
+    } else {
+        // Restaurar configurações padrão para telas maiores
+        if (growthChart) {
+            growthChart.options.plugins.legend.position = 'top';
+            growthChart.update();
+        }
+        
+        if (usersChart) {
+            usersChart.options.plugins.legend.position = 'right';
+            usersChart.update();
+        }
+        
+        if (topToursChart) {
+            topToursChart.options.indexAxis = 'y';
+            topToursChart.update();
+        }
+        
+        if (revenueChart) {
+            revenueChart.options.plugins.legend.position = 'top';
+            revenueChart.update();
+        }
+    }
+}
+
+// Executar ao carregar e ao redimensionar a janela
+window.addEventListener('load', adjustChartsForMobile);
+window.addEventListener('resize', adjustChartsForMobile);
     </script>
 </body>
 </html>
